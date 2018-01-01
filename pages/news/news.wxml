@@ -1,0 +1,11 @@
+<!--index.wxml-->
+<view class="container">
+<view class="list_1">
+   <view  wx:for="{{newsList}}"  wx:for-index="idx"  wx:for-item="newsObject">
+      <view class="news_blurywood" catchtouchstart = "bindJumpDetail" >
+       {{idx}}: {{newsObject.title}}
+       <image  src="{{newsObject.thumbnail_pic_s}}" background-size="cover"></image>
+      </view>
+  </view>
+</view>
+</view>

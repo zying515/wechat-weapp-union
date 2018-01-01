@@ -1,0 +1,6 @@
+<!--index.wxml-->
+<view class="container">
+<view class="list_1">
+  详情页面
+</view>
+</view>
