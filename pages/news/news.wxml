@@ -1,11 +1,25 @@
-<!--index.wxml-->
-<view class="container">
-<view class="list_1">
-   <view  wx:for="{{newsList}}"  wx:for-index="idx"  wx:for-item="newsObject">
-      <view class="news_blurywood" catchtouchstart = "bindJumpDetail" >
-       {{idx}}: {{newsObject.title}}
-       <image  src="{{newsObject.thumbnail_pic_s}}" background-size="cover"></image>
-      </view>
-  </view>
-</view>
-</view>
+<!--index.wxml bindscroll="scroll"-->
+  <!-- <scroll-view  scroll-y style="height: 1000px;" bindscrolltolower="loadMore"
+             bindscrolltoupper="refresh" >-->
+           <scroll-view  scroll-y style="height: 1000px;"  >
+   <view wx:for="{{newsList}}" wx:for-index="idx"  wx:for-item="newsObject" wx:key="uniquekey">
+      <!-- <view class="news_blurywood" catchtouchstart = "bindJumpDetail" > -->
+       <view class="text" bindtap="bindJumpDetail" data-url="{{newsObject.url}}" >  {{newsObject.title}}</view>
+       <swiper  bindtap="bindJumpDetail" data-url="{{newsObject.url}}"  indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+              <swiper-item wx:if="{{newsObject.thumbnail_pic_s}}">
+                  <image src="{{newsObject.thumbnail_pic_s}}"   class="cover"/>
+             </swiper-item>
+
+              <swiper-item  wx:if="{{newsObject.thumbnail_pic_s02}}">
+              
+                  <image src="{{newsObject.thumbnail_pic_s02}}"  class="cover"/>
+                    </swiper-item>
+
+              <swiper-item  wx:if="{{newsObject.thumbnail_pic_s03}}">
+                  <image src="{{newsObject.thumbnail_pic_s03}}"  class="cover"/>
+              </swiper-item>
+        </swiper>
+      <!-- </view> -->
+    </view>
+  </scroll-view>
+

@@ -16,6 +16,14 @@ Page({
     })
   },
   onLoad: function () {
+    wx.setNavigationBarColor({
+      frontColor: '#ffffff',
+      backgroundColor: '#ff0000',
+      animation: {
+        duration: 400,
+        timingFunc: 'easeIn'
+      }
+    })
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
